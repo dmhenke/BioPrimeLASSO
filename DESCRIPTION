@@ -11,4 +11,4 @@ LazyData: true
 RoxygenNote: 7.3.2
 Depends: R (>= 4.3), glmnet (>= 4.1-8)
 Imports: glmnet
-Suggests: ggplot2
+Suggests: ggplot2, biomaRt, curl
