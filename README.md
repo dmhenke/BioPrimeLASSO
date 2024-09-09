@@ -106,7 +106,7 @@ scores <- get_scores(gene=GoI, network=ppi)
 5)  Run LASSO
 
 ``` r
-results_omic <- biolasso(
+results_omic <- bplasso(
   scale(X_omic_OK), y_ok, scores,
   n_folds = 10, phi_range = seq(0, 1, length = 30))
 ```

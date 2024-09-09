@@ -3,7 +3,7 @@ Type: Package
 Title: Bio-primed machine learning to enhance discovery of relevant biomarkers
 Version: 0.1.0
 Author: Henke DM, ..., Simon LM
-Maintainer: [[The package maintainer <yourself@somewhere.net>]]
+Maintainer: davidmhenke@gmail.com
 Description: Extending the LASSO regression framework by incorporate biological knowledge, such as protein-protein interaction (PPI) databases, into the regularization process to refine 
 License: GPL-3
 Encoding: UTF-8
