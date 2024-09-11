@@ -40,11 +40,12 @@ complex interplay of genetic and molecular factors in disease.
 install.packages("devtools")
 library("devtools")
 install_github("dmhenke/BioPrimeLASSO")
-library(BioPrimeLASSO)
-library(curl)
+library("BioPrimeLASSO")
+#library(curl)
 if (!requireNamespace("BiocManager", quietly = TRUE))
-    install.packages("BiocManager")
+  install.packages("BiocManager")
 BiocManager::install("biomaRt")
+library("biomaRt")
 ```
 
 2)  Load data locally (\< 2 Gb)
