@@ -25,5 +25,5 @@ rmse <- get_rmse_from_xvalid(X, y, penalties,
   phi_range = phirange,
   lambda_min = 0.5,
   n_folds = 10)
-  best_phi <- find_best_phi_rmse(rmse, phirange, plot = F)
+  best_phi <- find_best_phi_rmse(rmse, phirange)
 }
