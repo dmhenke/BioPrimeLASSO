@@ -93,7 +93,9 @@ GoI <- "EGFR"
 
 ``` r
 # Dependency score resource: demeter2
-y <- na.omit(demeter2[,GoI])
+y <- demeter2[,GoI]
+names(y) <- rownames(demeter2)
+y <- na.omit(y)
 
 # Identify 'omic information to test against dependency score: cnv
 X_omic <- na.omit(cnv)
