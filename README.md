@@ -47,8 +47,8 @@ if (!requireNamespace("BiocManager", quietly = TRUE))
 BiocManager::install("biomaRt")
 ```
 
-2)  Load data (\< 2 Gb)
-
+2)  Load data locally (\< 2 Gb)
+Copy number variation ([cnv] (https://drive.google.com/file/d/1dtKIOnx_lVn5glp67ItjPbiSdE10ZFFm/view?usp=drive_link))
 ``` r
 cnv <- read.csv(curl("https://drive.google.com/file/d/1dtKIOnx_lVn5glp67ItjPbiSdE10ZFFm/view?usp=drive_link"),sep = '\t',header=T)
 ppi <- read.csv(curl("https://drive.google.com/file/d/1loo9kdMwAUYoJrBCwe3Dk1b9TDDyY72e/view?usp=drive_link"),sep = '\t',header=T)
