@@ -13,7 +13,7 @@
 #'   phi_range = phirange,
 #'   lambda_min = 0.5,
 #'   n_folds = 10)
-#'   best_phi <- find_best_phi_rmse(rmse, phirange, plot = F)
+#'   best_phi <- find_best_phi_rmse(rmse, phirange)
 
 find_best_phi_rmse <- function(rmse, phi_range){
   median_rmse <- apply(rmse, 1, median)
