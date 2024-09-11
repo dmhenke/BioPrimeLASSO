@@ -47,7 +47,7 @@ bplasso <- function(X, y, scores,
     print("Missing values in correlation.")
     return(NA)
   }
-  best_phi <- find_best_phi_rmse(rmse, phi_range, plot = F)
+  best_phi <- find_best_phi_rmse(rmse, phi_range)
   print(paste("Best phi based on RMSE:", round(best_phi, 4)))
   # Run LASSO with updated lambda & phi
   afit <- glmnet(
