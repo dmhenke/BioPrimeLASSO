@@ -46,6 +46,8 @@ if (!requireNamespace("BiocManager", quietly = TRUE))
   install.packages("BiocManager")
 BiocManager::install("biomaRt")
 library("biomaRt")
+install.packages("ggplot2")
+library("ggplot2")
 ```
 
 2)  Load data locally (\< 2 Gb)
