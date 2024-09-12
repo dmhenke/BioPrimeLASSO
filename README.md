@@ -120,6 +120,10 @@ scores <- get_scores(gene=GoI, network=ppi)
 results_omic <- bplasso(
   scale(X_omic_OK), y_ok, scores,
   n_folds = 10, phi_range = seq(0, 1, length = 30))
+
+# Save results
+file_results <- paste0("./",GoI,"_demeter2_CNV.RData")
+save(results_omic,file = file_results)
 ```
 
 6)  Visualize results
@@ -133,5 +137,5 @@ results_omic$cor2score <- cor(
 # Plot: Manhattan plot
 ## Correlation of Dependency score and CNV for each gene
 ## Overlay bio-primed LASSO & baseline LASSO hits
-plot_manhattan(gene=GoI,resIn="../Outputs/EGFR_demeter2_CNV.RData",subplotChr=11,dependency=demeter2,dir_save="../Outputs/Graphics/")
+plot_manhattan(gene=GoI,resIn=file_results,subplotChr=11,dependency=demeter2,gene_info=gene_info,dir_save="../Outputs/Graphics/")
 ```
