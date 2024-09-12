@@ -139,5 +139,5 @@ save(results_omic,file = file_results)
 # Plot: Manhattan plot
 ## Correlation of Dependency score and CNV for each gene
 ## Overlay bio-primed LASSO & baseline LASSO hits
-plot_manhattan(gene=GoI,resIn=file_results,subplotChr=11,dependency=demeter2,gene_info=gene_info,dir_save="../Outputs/Graphics/")
+plot_manhattan(gene=GoI,resIn=file_results,subplotChr=11,dependency=demeter2,gene_info=gene_info,dir_save="./")
 ```
