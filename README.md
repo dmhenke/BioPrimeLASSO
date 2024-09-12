@@ -123,6 +123,11 @@ results_omic <- bplasso(
   scale(X_omic_OK), y_ok, scores,
   n_folds = 10, phi_range = seq(0, 1, length = 30))
 
+# Add Pearson correlation: cor2score
+results_omic$cor2score <- cor(
+  X_omic_OK, y_ok,
+  use = "pairwise.complete")[,1]
+
 # Save results
 file_results <- paste0("./",GoI,"_demeter2_CNV.RData")
 save(results_omic,file = file_results)
@@ -131,11 +136,6 @@ save(results_omic,file = file_results)
 6)  Visualize results
 
 ``` r
-# Add Pearson correlation: cor2score
-results_omic$cor2score <- cor(
-  X_omic_OK, y_ok,
-  use = "pairwise.complete")[,1]
-
 # Plot: Manhattan plot
 ## Correlation of Dependency score and CNV for each gene
 ## Overlay bio-primed LASSO & baseline LASSO hits
