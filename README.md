@@ -54,16 +54,16 @@ library("ggplot2")
 
 Download the following three files locally:
 
-Copy number variation ([cnv](https://drive.google.com/file/d/1dtKIOnx_lVn5glp67ItjPbiSdE10ZFFm/view?usp=drive_link))
+Copy number variation ([cnv.tsv](https://drive.google.com/file/d/1dtKIOnx_lVn5glp67ItjPbiSdE10ZFFm/view?usp=drive_link))
 
-Protein-protein interaction network ([ppi](https://drive.google.com/file/d/1-Flap0yM1Ba4d8ibVYs6ha82snsmAu-v/view?usp=drive_link))
+Protein-protein interaction network ([ppi_w_symbols.tsv](https://drive.google.com/file/d/1-Flap0yM1Ba4d8ibVYs6ha82snsmAu-v/view?usp=drive_link))
 
-Dependency data ([demeter2](https://drive.google.com/file/d/1loo9kdMwAUYoJrBCwe3Dk1b9TDDyY72e/view?usp=drive_link))
+Dependency data ([demeter2.tsv](https://drive.google.com/file/d/1loo9kdMwAUYoJrBCwe3Dk1b9TDDyY72e/view?usp=drive_link))
 
 ``` r
-cnv <- read.csv("./cnv",sep = '\t',header=T)
-ppi <- read.csv("./ppi",sep = '\t',header=T)
-demeter2 <- read.csv("./demeter2",sep = '\t',header=T)
+cnv <- read.csv("./cnv.tsv",sep = '\t',header=T)
+ppi <- read.csv("./ppi_w_symbols.tsv",sep = '\t',header=T)
+demeter2 <- read.csv("./demeter2.tsv",sep = '\t',header=T)
 ```
 
 2.1) Load supplemental information
