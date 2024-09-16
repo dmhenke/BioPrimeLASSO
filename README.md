@@ -62,11 +62,11 @@ library("ggplot2")
 
 <sub>__Complete datasets (not used below)__</sub>
 
-<sub>Copy number variation ([cnv.tsv](https://drive.google.com/file/d/1dtKIOnx_lVn5glp67ItjPbiSdE10ZFFm/view?usp=drive_link))_</sub>
+<sub>Copy number variation ([cnv.tsv](https://drive.google.com/file/d/1dtKIOnx_lVn5glp67ItjPbiSdE10ZFFm/view?usp=drive_link))</sub>
 
-<sub>Protein-protein interaction network ([ppi_w_symbols_EGFR.tsv](https://drive.google.com/file/d/1-Flap0yM1Ba4d8ibVYs6ha82snsmAu-v/view?usp=drive_link))_</sub>
+<sub>Protein-protein interaction network ([ppi_w_symbols_EGFR.tsv](https://drive.google.com/file/d/1-Flap0yM1Ba4d8ibVYs6ha82snsmAu-v/view?usp=drive_link))</sub>
 
-<sub>Dependency data ([demeter2.tsv](https://drive.google.com/file/d/1loo9kdMwAUYoJrBCwe3Dk1b9TDDyY72e/view?usp=drive_link))_</sub>
+<sub>Dependency data ([demeter2.tsv](https://drive.google.com/file/d/1loo9kdMwAUYoJrBCwe3Dk1b9TDDyY72e/view?usp=drive_link))</sub>
 
 
 
