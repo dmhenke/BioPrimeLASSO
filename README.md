@@ -34,7 +34,7 @@ complex interplay of genetic and molecular factors in disease.
 
 ## R Package walkthrough
 
-1)  Load library
+###1)  Load library
 
 ``` r
 install.packages("devtools")
@@ -50,7 +50,7 @@ install.packages("ggplot2")
 library("ggplot2")
 ```
 
-2)  Load data locally (~1.05 Gb)
+###2)  Load data locally (~1.05 Gb)
 
   Download the following three files locally:
 
