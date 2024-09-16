@@ -76,7 +76,7 @@ ppi <- read.csv("./ppi_w_symbols_EGFR.tsv",sep = '\t',header=T)
 demeter2 <- read.csv("./demeter2_EGFR.tsv",sep = '\t',header=T)
 ```
 
-2.1) Load supplemental information
+### 2.1) Load supplemental information
 
 ``` r
 ## Load gene information ####
@@ -95,13 +95,13 @@ gene_info$chromosome_name <- factor(
   gene_info$chromosome_name, levels = chrs)
 ```
 
-3)  Identify gene of interest: EGFR
+### 3)  Identify gene of interest: EGFR
 
 ``` r
 GoI <- "EGFR"
 ```
 
-4)  Setup objects for analysis
+### 4)  Setup objects for analysis
 
 ``` r
 # Dependency score resource: demeter2
@@ -126,7 +126,7 @@ X_omic_OK <- X_omic_OK[, apply(X_omic_OK, 2, var) > 0]
 scores <- get_scores(gene=GoI, network=ppi)
 ```
 
-5)  Run LASSO
+### 5)  Run LASSO
 
 ``` r
 results_omic <- bplasso(
@@ -143,7 +143,7 @@ file_results <- paste0("./",GoI,"_demeter2_CNV.RData")
 save(results_omic,file = file_results)
 ```
 
-6)  Visualize results
+### 6)  Visualize results
 
 ``` r
 # Plot: Manhattan plot
