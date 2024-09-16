@@ -54,17 +54,20 @@ library("ggplot2")
 
 Download the following three files locally:
 
-_Copy number variation ([cnv.tsv](https://drive.google.com/file/d/1dtKIOnx_lVn5glp67ItjPbiSdE10ZFFm/view?usp=drive_link))_
-
-**EGFR example**: Copy number variation ([cnv_EGFR.tsv]((https://drive.google.com/file/d/1aqWQcxg3CgFGSCrpcz6ElZ1NX1t6u27U/view?usp=drive_link)))
-
-_Protein-protein interaction network ([ppi_w_symbols_EGFR.tsv](https://drive.google.com/file/d/1-Flap0yM1Ba4d8ibVYs6ha82snsmAu-v/view?usp=drive_link))_
+**EGFR example**: Copy number variation ([cnv_EGFR.tsv](https://drive.google.com/file/d/1aqWQcxg3CgFGSCrpcz6ElZ1NX1t6u27U/view?usp=drive_link))
 
 **EGFR example**: Protein-protein interaction network ([ppi_w_symbols.tsv](https://drive.google.com/file/d/1npIekQYq_GgpyF6z2NLUMgIoLtUaaQ9M/view?usp=drive_link))
 
+**EGFR example**: Dependency data ([demeter2_EGFR.tsv](https://drive.google.com/file/d/13gyAJg6XHofzWbMuNtSEECR69WLPpvwG/view?usp=drive_link))
+
+__Complete datasets (not used below)__
+_Copy number variation ([cnv.tsv](https://drive.google.com/file/d/1dtKIOnx_lVn5glp67ItjPbiSdE10ZFFm/view?usp=drive_link))_
+
+_Protein-protein interaction network ([ppi_w_symbols_EGFR.tsv](https://drive.google.com/file/d/1-Flap0yM1Ba4d8ibVYs6ha82snsmAu-v/view?usp=drive_link))_
+
 _Dependency data ([demeter2.tsv](https://drive.google.com/file/d/1loo9kdMwAUYoJrBCwe3Dk1b9TDDyY72e/view?usp=drive_link))_
 
-**EGFR example**: Dependency data ([demeter2_EGFR.tsv](https://drive.google.com/file/d/13gyAJg6XHofzWbMuNtSEECR69WLPpvwG/view?usp=drive_link))
+
 
 ``` r
 cnv <- read.csv("./cnv_EGFR.tsv",sep = '\t',header=T)
