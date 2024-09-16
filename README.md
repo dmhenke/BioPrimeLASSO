@@ -60,7 +60,7 @@ library("ggplot2")
 
 **EGFR example**: Dependency data ([demeter2_EGFR.tsv](https://drive.google.com/file/d/13gyAJg6XHofzWbMuNtSEECR69WLPpvwG/view?usp=drive_link))
 
-<sub>__Complete datasets ( (\< 2 Gb) | not used below)__</sub>
+<sub>__Complete datasets (\< 2 Gb) | not used below)__</sub>
 
 <sub>Copy number variation ([cnv.tsv](https://drive.google.com/file/d/1dtKIOnx_lVn5glp67ItjPbiSdE10ZFFm/view?usp=drive_link))</sub>
 
