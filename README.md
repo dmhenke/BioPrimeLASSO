@@ -1,74 +1,45 @@
-READ ME
-================
-2024-09-09
-
 ## Bio-primed machine learning to enhance discovery of relevant biomarkers
 
 <p align="middle">
   <img src="BioPrimeLASSO_overview.png" width="75%"/>
 </p>
 
-## *R library: BioPrimeLASSO*
+### Introduction
 
-## Introduction
+Precision medicine relies on identifying reliable biomarkers for gene dependencies to tailor individualized therapeutic strategies. The advent of high-throughput technologies presents unprecedented opportunities to explore molecular disease mechanisms but also challenges due to high dimensionality and collinearity among features. Traditional statistical methods often fall short in this context, necessitating novel computational approaches that harness the full potential of big data in bioinformatics. Here, we introduce a novel machine learning approach extending the Least Absolute Shrinkage and Selection Operator (LASSO) regression framework to incorporate biological knowledge, such as protein-protein interaction databases, into the regularization process. This bio-primed approach prioritizes variables that are both statistically significant and biologically relevant. Applying our method to multiple dependency datasets, we identified biomarkers which traditional methods overlooked. Our biologically informed LASSO method effectively identifies relevant biomarkers from high-dimensional collinear data, bridging the gap between statistical rigor and biological insight. This method holds promise for advancing personalized medicine by uncovering novel therapeutic targets and understanding the complex interplay of genetic and molecular factors in disease.
 
-Precision medicine relies on identifying reliable biomarkers for gene
-dependencies to tailor individualized therapeutic strategies. The advent
-of high-throughput technologies presents unprecedented opportunities to
-explore molecular disease mechanisms but also challenges due to high
-dimensionality and collinearity among features. Traditional statistical
-methods often fall short in this context, necessitating novel
-computational approaches that harness the full potential of big data in
-bioinformatics. Here, we introduce a novel machine learning approach
-extending the LASSO regression framework to incorporate biological
-knowledge, such as protein-protein interaction (PPI) databases, into the
-regularization process. This approach prioritizes variables that are
-both statistically significant and biologically relevant. Applying our
-method to multiple dependency datasets, we identified biomarkers which
-traditional methods overlooked. Our biologically-informed LASSO method
-effectively identifies relevant biomarkers from high-dimensional
-collinear data, bridging the gap between statistical rigor and
-biological insight. This method holds promise for advancing personalized
-medicine by uncovering novel therapeutic targets and understanding the
-complex interplay of genetic and molecular factors in disease.
+------------------------------------------
+### Reproducibility
+Analysis code to reproduce results described in our manuscript can be found here.
 
-## R Package walkthrough
+------------------------------------------
 
-### 1)  Load library
+### R Package walkthrough
+
+#### 1)  Installation
+
+Our R package called **BioPrimeLASSO** requires the following R packages to be installed: [glmnet](https://github.com/cran/glmnet) and [ggplot2](https://github.com/tidyverse/ggplot2).
 
 ``` r
 install.packages("devtools")
-library("devtools")
-install_github("dmhenke/BioPrimeLASSO")
-library("BioPrimeLASSO")
-#library(curl)
-if (!requireNamespace("BiocManager", quietly = TRUE))
-  install.packages("BiocManager")
-BiocManager::install("biomaRt")
-library("biomaRt")
-install.packages("ggplot2")
-library("ggplot2")
+devtools::install_github("dmhenke/BioPrimeLASSO")
 ```
 
-### 2)  Load data locally (~1.05 Gb)
+#### 2)  Load toy data (total size ~1Gb)
 
-  Download the following three files locally:
+  In this toy example we will use BioPrimeLASSO to discover copy number biomarkers for _EGFR_ dependency. BioPrimeLASSO also makes use of Protein-Protein interaction information from STRING DB. Please download the following three files:
 
-**EGFR example**: Copy number variation ([cnv_EGFR.tsv](https://drive.google.com/file/d/1aqWQcxg3CgFGSCrpcz6ElZ1NX1t6u27U/view?usp=drive_link))
+1. Copy number variation ([cnv_EGFR.tsv](https://drive.google.com/file/d/1aqWQcxg3CgFGSCrpcz6ElZ1NX1t6u27U/view?usp=drive_link))
+2. Dependency data ([demeter2_EGFR.tsv](https://drive.google.com/file/d/13gyAJg6XHofzWbMuNtSEECR69WLPpvwG/view?usp=drive_link))
+3. Protein-protein interaction network ([ppi_w_symbols_EGFR.tsv](https://drive.google.com/file/d/1npIekQYq_GgpyF6z2NLUMgIoLtUaaQ9M/view?usp=drive_link))
 
-**EGFR example**: Protein-protein interaction network ([ppi_w_symbols.tsv](https://drive.google.com/file/d/1npIekQYq_GgpyF6z2NLUMgIoLtUaaQ9M/view?usp=drive_link))
+For full analysis and to reproduce the results in our manuscript please use the following files (total size ~2Gb):
 
-**EGFR example**: Dependency data ([demeter2_EGFR.tsv](https://drive.google.com/file/d/13gyAJg6XHofzWbMuNtSEECR69WLPpvwG/view?usp=drive_link))
-
-<sub>__Complete datasets (\< 2 Gb | not used below)__</sub>
-
-<sub>Copy number variation ([cnv.tsv](https://drive.google.com/file/d/1dtKIOnx_lVn5glp67ItjPbiSdE10ZFFm/view?usp=drive_link))</sub>
-
-<sub>Protein-protein interaction network ([ppi_w_symbols_EGFR.tsv](https://drive.google.com/file/d/1-Flap0yM1Ba4d8ibVYs6ha82snsmAu-v/view?usp=drive_link))</sub>
-
-<sub>Dependency data ([demeter2.tsv](https://drive.google.com/file/d/1loo9kdMwAUYoJrBCwe3Dk1b9TDDyY72e/view?usp=drive_link))</sub>
-
-
+1. Protein-protein interaction network ([ppi_w_symbols.tsv](https://drive.google.com/file/d/1-Flap0yM1Ba4d8ibVYs6ha82snsmAu-v/view?usp=drive_link))
+2. Copy number variation ([cnv.tsv](https://drive.google.com/file/d/1dtKIOnx_lVn5glp67ItjPbiSdE10ZFFm/view?usp=drive_link))
+3. RNA expression ([rna.tsv](link)) UPDATE
+4. Demeter2 dependency data ([demeter2.tsv](https://drive.google.com/file/d/1loo9kdMwAUYoJrBCwe3Dk1b9TDDyY72e/view?usp=drive_link))
+5. Chronos dependency data ([chronos.tsv](link)) UPDATE
 
 ``` r
 cnv <- read.csv("./cnv_EGFR.tsv",sep = '\t',header=T)
@@ -76,17 +47,16 @@ ppi <- read.csv("./ppi_w_symbols_EGFR.tsv",sep = '\t',header=T)
 demeter2 <- read.csv("./demeter2_EGFR.tsv",sep = '\t',header=T)
 ```
 
-### 2.1) Load supplemental information
-
+#### 2.1) Load supplemental information (optional)
+Next, we load some information for each gene including genomic location using the [biomaRt](https://bioconductor.org/packages/release/bioc/html/biomaRt.html) R package.
 ``` r
-## Load gene information ####
 mart <- useDataset("hsapiens_gene_ensembl", useMart("ensembl"))
 gene_info <- getBM(
   attributes = c("chromosome_name", "start_position", "hgnc_symbol"),
   filters = "hgnc_symbol",
   values = colnames(cnv),
   mart = mart)
-## Refine data
+
 chrs <- as.character(1:22)
 gene_info <- gene_info[gene_info$chromosome_name %in% chrs, ]
 uniq <- names(which(table(gene_info$hgnc_symbol) == 1))
@@ -95,13 +65,13 @@ gene_info$chromosome_name <- factor(
   gene_info$chromosome_name, levels = chrs)
 ```
 
-### 3)  Identify gene of interest: EGFR
+#### 3)  Define gene of interest: EGFR
 
 ``` r
 GoI <- "EGFR"
 ```
 
-### 4)  Setup objects for analysis
+#### 4)  Setup data objects for analysis
 
 ``` r
 # Dependency score resource: demeter2
@@ -118,7 +88,6 @@ X_omic_OK  <- X_omic[ok_cells, ]
 y_ok <- y[ok_cells]
 
 ## Remove features without variance ####
-# "CNV"
 X_omic_OK <- X_omic_OK[, apply(X_omic_OK, 2, var) > 0]
 
 ### Generate scores
@@ -126,7 +95,7 @@ X_omic_OK <- X_omic_OK[, apply(X_omic_OK, 2, var) > 0]
 scores <- get_scores(gene=GoI, network=ppi)
 ```
 
-### 5)  Run LASSO
+#### 5)  Run BioPrimeLASSO
 
 ``` r
 results_omic <- bplasso(
@@ -143,11 +112,9 @@ file_results <- paste0("./",GoI,"_demeter2_CNV.RData")
 save(results_omic,file = file_results)
 ```
 
-### 6)  Visualize results
+#### 6)  Visualize results
 
 ``` r
-# Plot: Manhattan plot
-## Correlation of Dependency score and CNV for each gene
-## Overlay bio-primed LASSO & baseline LASSO hits
+## Correlation of Dependency score and CNV for each gene overlaying bio-primed LASSO & baseline LASSO hits
 plot_manhattan(gene=GoI,resIn=file_results,subplotChr=11,dependency=demeter2,gene_info=gene_info,dir_save="./")
 ```
