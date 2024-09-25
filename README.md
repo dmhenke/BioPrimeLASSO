@@ -77,10 +77,9 @@ GoI <- "EGFR"
 # Dependency score resource: demeter2
 y <- demeter2[,GoI]
 names(y) <- rownames(demeter2)
-y <- na.omit(y)
 
 # Identify 'omic information to test against dependency score: cnv
-X_omic <- na.omit(cnv)
+X_omic <- cnv
 
 ## Refine population to overlapping cell lines
 ok_cells <- intersect(names(y), rownames(X_omic))
