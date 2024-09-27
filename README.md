@@ -37,9 +37,9 @@ For full analysis and to reproduce the results in our manuscript please use the 
 
 1. Protein-protein interaction network ([ppi_w_symbols.tsv](https://drive.google.com/file/d/1-Flap0yM1Ba4d8ibVYs6ha82snsmAu-v/view?usp=drive_link))
 2. Copy number variation ([cnv.tsv](https://drive.google.com/file/d/1dtKIOnx_lVn5glp67ItjPbiSdE10ZFFm/view?usp=drive_link))
-3. RNA expression ([rna.tsv](link)) UPDATE
+3. RNA expression ([rna.tsv](https://drive.google.com/file/d/1oNrQNUHXkjVy0HgNnNst9yR_cqKFLYyZ/view?usp=drive_link))
 4. Demeter2 dependency data ([demeter2.tsv](https://drive.google.com/file/d/1loo9kdMwAUYoJrBCwe3Dk1b9TDDyY72e/view?usp=drive_link))
-5. Chronos dependency data ([chronos.tsv](link)) UPDATE
+5. Chronos dependency data ([chronos.tsv](https://drive.google.com/file/d/1_TvvBO26EFDXR7nIXUmEYt919FaD2Ve1/view?usp=drive_link))
 
 ``` r
 cnv <- read.csv("./cnv_EGFR.tsv",sep = '\t',header=T)
