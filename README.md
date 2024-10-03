@@ -12,7 +12,7 @@ Precision medicine relies on identifying reliable biomarkers for gene dependenci
 ### Reproducibility
 Analysis code to reproduce results described in our manuscript can be found here.
 
-Walk-through for the paper's [figure 2](https://github.com/dmhenke/BioPrimeLASSO/tree/main/ReproducibilityWalkthrough_Figure2.html)
+Walk-through for the paper's [figure 2](https://github.com/dmhenke/BioPrimeLASSO/tree/main/Reproducibility/Walkthrough_Figure2.html)
 
 
 ------------------------------------------
