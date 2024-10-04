@@ -14,7 +14,7 @@ Analysis code to reproduce results described in our manuscript can be found [her
 
 ------------------------------------------
 
-### R Package walkthrough
+### R Package Walkthrough
 
 #### 1)  Installation
 
@@ -25,21 +25,13 @@ install.packages("devtools")
 devtools::install_github("dmhenke/BioPrimeLASSO")
 ```
 
-#### 2)  Load toy data (total size ~1Gb)
+#### 2)  Load toy data (total size ~20Mb)
 
   In this toy example we will use BioPrimeLASSO to discover copy number biomarkers for _EGFR_ dependency. BioPrimeLASSO also makes use of Protein-Protein interaction information from STRING DB. Please download the following three files:
 
 1. Copy number variation ([cnv_EGFR.tsv](https://drive.google.com/file/d/1aqWQcxg3CgFGSCrpcz6ElZ1NX1t6u27U/view?usp=drive_link))
 2. Dependency data ([demeter2_EGFR.tsv](https://drive.google.com/file/d/13gyAJg6XHofzWbMuNtSEECR69WLPpvwG/view?usp=drive_link))
 3. Protein-protein interaction network ([ppi_w_symbols_EGFR.tsv](https://drive.google.com/file/d/1npIekQYq_GgpyF6z2NLUMgIoLtUaaQ9M/view?usp=drive_link))
-
-For full analysis and to reproduce the results in our manuscript please use the following files (total size ~2Gb):
-
-1. Protein-protein interaction network ([ppi_w_symbols.tsv](https://drive.google.com/file/d/1-Flap0yM1Ba4d8ibVYs6ha82snsmAu-v/view?usp=drive_link))
-2. Copy number variation ([cnv.tsv](https://drive.google.com/file/d/1dtKIOnx_lVn5glp67ItjPbiSdE10ZFFm/view?usp=drive_link))
-3. RNA expression ([rna.tsv](https://drive.google.com/file/d/1oNrQNUHXkjVy0HgNnNst9yR_cqKFLYyZ/view?usp=drive_link))
-4. Demeter2 dependency data ([demeter2.tsv](https://drive.google.com/file/d/1loo9kdMwAUYoJrBCwe3Dk1b9TDDyY72e/view?usp=drive_link))
-5. Chronos dependency data ([chronos.tsv](https://drive.google.com/file/d/1_TvvBO26EFDXR7nIXUmEYt919FaD2Ve1/view?usp=drive_link))
 
 ``` r
 cnv <- read.csv("./cnv_EGFR.tsv",sep = '\t',header=T)
@@ -122,3 +114,25 @@ plot_manhattan(gene=GoI,
   gene_info=gene_info,
   dir_save="./")
 ```
+
+-----------------------------------------------------------
+
+### Data
+
+For full analysis and to reproduce the results in our manuscript please use the following files (total size ~2Gb):
+
+1. Protein-protein interaction network ([ppi_w_symbols.tsv](https://drive.google.com/file/d/1-Flap0yM1Ba4d8ibVYs6ha82snsmAu-v/view?usp=drive_link))
+2. Copy number variation ([cnv.tsv](https://drive.google.com/file/d/1dtKIOnx_lVn5glp67ItjPbiSdE10ZFFm/view?usp=drive_link))
+3. RNA expression ([rna.tsv](https://drive.google.com/file/d/1oNrQNUHXkjVy0HgNnNst9yR_cqKFLYyZ/view?usp=drive_link))
+4. Demeter2 dependency data ([demeter2.tsv](https://drive.google.com/file/d/1loo9kdMwAUYoJrBCwe3Dk1b9TDDyY72e/view?usp=drive_link))
+5. Chronos dependency data ([chronos.tsv](https://drive.google.com/file/d/1_TvvBO26EFDXR7nIXUmEYt919FaD2Ve1/view?usp=drive_link))
+
+These files were originally downloaded from the DepMap [webportal](https://depmap.org/portal/) (22Q2) and STRING DB [website](https://string-db.org/).
+
+-----------------------------------------------------------
+## License
+
+`BioPrimeLASSO` uses GNU General Public License GPL-3.
+
+-----------------------------------------------------------
+
