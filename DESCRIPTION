@@ -1,14 +1,48 @@
 Package: BioPrimeLASSO
 Type: Package
 Title: Bio-primed machine learning to enhance discovery of relevant biomarkers
-Version: 0.1.0
-Author: Henke DM, Renwick A, Zoeller J, Meena J,  Neill N, Westbrook T, Simon LM
+Version: 1.0.0
+Authors@R: c(
+  person("David M.", "Henke",
+         role = c("aut", "cre"),
+         comment = c(ORCID = "0000-0003-2911-2834",
+                     affiliation = "Molecular Virology & Microbiology, Baylor College of Medicine")),
+  person("Alexander", "Renwick",
+         role = "aut",
+         comment = c(affiliation = "Department of Statistics, Rice University")),
+  person("Joseph R.", "Zoeller",
+         role = "aut",
+         comment = c(affiliation = "Medical Scientist Training Program; Biochemistry & Molecular Pharmacology; Therapeutic Innovation Center, Baylor College of Medicine")),
+  person("Jitendra K.", "Meena",
+         role = "aut",
+         comment = c(affiliation = "Biochemistry & Molecular Pharmacology; Therapeutic Innovation Center, Baylor College of Medicine")),
+  person("Nicholas J.", "Neill",
+         role = "aut",
+         comment = c(affiliation = "Biochemistry & Molecular Pharmacology; Therapeutic Innovation Center, Baylor College of Medicine")),
+  person("Elizabeth A.", "Bowling",
+         role = "aut",
+         comment = c(affiliation = "Biochemistry & Molecular Pharmacology; Therapeutic Innovation Center, Baylor College of Medicine")),
+  person("Kristen L.", "Meerbrey",
+         role = "aut",
+         comment = c(affiliation = "Biochemistry & Molecular Pharmacology; Therapeutic Innovation Center, Baylor College of Medicine")),
+  person("Thomas F.", "Westbrook",
+         role = "aut",
+         comment = c(affiliation = "Biochemistry & Molecular Pharmacology; Therapeutic Innovation Center, Baylor College of Medicine")),
+  person("Lukas M.", "Simon",
+         role = "aut",
+         comment = c(affiliation = "Biochemistry & Molecular Pharmacology; Therapeutic Innovation Center, Baylor College of Medicine"))
+)
 Maintainer: David Henke <davidmhenke@gmail.com>
-Description: Extending the 'glmnet' LASSO regression framework by incorporate biological knowledge.
+Description: Extending the 'glmnet' by implementing a biologically informed extension of the Least Absolute Shrinkage and Selection Operator (LASSO) regression framework that incorporates protein-protein interaction (PPI) network data into the regularization penalty. Designed for high-dimensional biomarker discovery in precision oncology contexts, particularly using DepMap dependency and copy number variation data.
 License: GPL-3
+URL: https://github.com/dmhenke/BioPrimeLASSO
+BugReports: https://github.com/dmhenke/BioPrimeLASSO/issues
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.3.2
 Depends: R (>= 4.3), glmnet (>= 4.1-8)
 Imports: glmnet, ggplot2
-Suggests: biomaRt, curl
+Suggests: biomaRt, curl,testthat (>= 3.0.0), knitr, rmarkdown
+VignetteBuilder: knitr
+RoxygenNote: 7.3.1
+biocViews: Software, StatisticalMethod, Regression, Network
