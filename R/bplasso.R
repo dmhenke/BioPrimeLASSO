@@ -1,10 +1,25 @@
 #' Bio-primed LASSO
 #'
-#' @param X matrix as in `glmnet::glmnet()`
-#' @param y response array as in `glmnet::glmnet()`
-#' @param scores Gene specific association scores, from `get_scores()`
-#' @param n_folds Number of cross-validations
-#' @param phi_range  Array of phi ranges to test.  Suggested limits [0,1]
+#' Fits a biologically informed LASSO model that incorporates protein-protein
+#' interaction (PPI) network scores as penalty weights during cross-validated
+#' regularization. The method prioritizes features that are both statistically
+#' relevant and biologically plausible, as measured by their proximity to a
+#' gene of interest in a curated PPI network (e.g., STRING DB).
+#'
+#' @param X A numeric matrix of predictor variables (n x p), as in `glmnet::glmnet()`, typically
+#'   scaled omic features (e.g., copy number variation). Rows are observations
+#'   (cell lines), columns are features (genes).
+#' @param y A numeric response vector, as in `glmnet::glmnet()`, of length n containing the response variable
+#'   (e.g., CRISPR dependency scores from DEMETER2 or Chronos).
+#' @param score A numeric vector of biological priority scores, Gene specific association from `get_scores()`, for each
+#'   predictor in \code{X}, typically derived from \code{\link{get_scores}}.
+#'   Higher scores imply greater biological relevance.
+#' @param n_folds An integer specifying the number of cross-validation folds.
+#'   Default is \code{10}.
+#' @param phi_range A numeric vector defining the grid of phi values to search
+#'   over. Phi controls the degree of bio-priming: \code{phi = 0} reduces the
+#'   model to standard LASSO; \code{phi = 1} applies maximal biological
+#'   weighting. Default is \code{seq(0, 1, length = 30)}.
 #'
 #' @return list of 5 elements
 #' 1: "phi" = best phi value as chosen by `find_best_phi_rmse()`
@@ -61,3 +76,4 @@ bplasso <- function(X, y, scores,
               lambda = lambda_min,
               betas = data.frame(betas, betas_pen)))
 }
+
